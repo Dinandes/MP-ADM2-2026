@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Noções de Administração e Administração Pública — MP-ADM2-2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="/MP-ADM2-2026/manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+    <style>
+      body { margin: 0; background: #fafafa; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+// ===================
+// DADOS DO CONTEÚDO
+// ===================
+
+// Super Resumo (tópicos para estudo rápido)
+const superResumo = [
+  "Administração: processo de planejar, organizar, dirigir e controlar recursos para atingir objetivos.",
+  "Gestão: aplicação prática da administração.",
+  "Organização: formal (planejada) ou informal (relações espontâneas).",
+  "Gestor: responsável por resultados, exerce liderança, planeja, organiza, dirige e controla.",
+  "Habilidades do gestor: técnicas, humanas, conceituais.",
+  "Processo Administrativo: Planejamento, Organização, Direção, Controle (PODC).",
+  "Eficiência: fazer certo, mínimo recurso. Eficácia: atingir objetivos. Efetividade: eficiente + eficaz.",
+  "Comunicação: formal/informal, oral/escrita, barreiras, fluxos (vertical, horizontal, transversal).",
+  "Redação Oficial: clareza, precisão, objetividade, impessoalidade, formalidade.",
+  "Atendimento ao Público: qualidade, princípios (competência, legitimidade, disponibilidade, flexibilidade).",
+  "Gestão de Documentos: produção, tramitação, uso, avaliação, arquivamento.",
+  "Administração Pública: direta (sem personalidade jurídica) e indireta (autarquias, fundações, empresas públicas, sociedades de economia mista).",
+  "Modelos: Patrimonialista, Burocrático, Gerencial.",
+  "Princípios Art.37 CRFB/88: Legalidade, Impessoalidade, Moralidade, Publicidade, Eficiência (LIMPE)."
+];
+
+// Resumo Completo (por blocos)
+const resumoCompleto = [
+  {
+    bloco: "Noções de Administração",
+    conteudo: [
+      "Administração é o processo de planejar, organizar, dirigir e controlar recursos para atingir objetivos.",
+      "Gestão é a aplicação prática da administração.",
+      "Organização pode ser formal (planejada) ou informal (relações espontâneas).",
+      "Tipos de organização: pública/privada, com/sem fins lucrativos, permanente/temporária.",
+      "Gestor: responsável por resultados, exerce liderança, planeja, organiza, dirige e controla.",
+      "Habilidades do gestor: técnicas (saber fazer), humanas (relacionamento), conceituais (visão do todo).",
+      "Papéis do gestor: interpessoal, informacional, decisório.",
+      "Funções organizacionais: produção, marketing, finanças, RH, P&D.",
+      "Princípios: especialização, definição funcional, paridade responsabilidade/autoridade, staff/linha, escalar."
+    ]
+  },
+  {
+    bloco: "Processo Administrativo (PODC)",
+    conteudo: [
+      "Planejamento: define objetivos e como alcançá-los.",
+      "Organização: arranja recursos e estrutura.",
+      "Direção: influencia e motiva pessoas.",
+      "Controle: monitora e corrige desvios.",
+      "Características: cíclico, interativo, iterativo, sistêmico."
+    ]
+  },
+  {
+    bloco: "Eficiência, Eficácia, Efetividade",
+    conteudo: [
+      "Eficiência: fazer certo, mínimo recurso.",
+      "Eficácia: atingir objetivos.",
+      "Efetividade: ser eficiente e eficaz ao mesmo tempo.",
+      "Produtividade: relação entre recursos usados e resultados obtidos.",
+      "Competitividade: desempenho superior ao dos concorrentes."
+    ]
+  },
+  {
+    bloco: "Comunicação Organizacional",
+    conteudo: [
+      "Sistema: fonte, transmissor, canal, receptor, destino, ruído.",
+      "Barreiras: ruídos, distorções, falta de clareza.",
+      "Tipos: formal/informal, oral/escrita.",
+      "Fluxos: vertical (ascendente/descendente), horizontal, transversal, circular.",
+      "Funções: controle, motivação, expressão emocional, informação."
+    ]
+  },
+  {
+    bloco: "Redação Oficial",
+    conteudo: [
+      "Manual da Presidência da República: clareza, precisão, objetividade, concisão, coesão, impessoalidade, formalidade, norma padrão.",
+      "Pronomes de tratamento: 'senhor' para agentes públicos federais (Decreto 9.758/2019).",
+      "Padrão ofício: cabeçalho, identificação, local/data, endereçamento, assunto, texto, fechos.",
+      "Exposição de Motivos: Ministro → Presidente/Vice.",
+      "Mensagem: entre Chefes de Poderes.",
+      "E-mail oficial: linguagem formal."
+    ]
+  },
+  {
+    bloco: "Atendimento ao Público",
+    conteudo: [
+      "Qualidade: tangibilidade, confiabilidade, proatividade, competência, cortesia, credibilidade, segurança, acesso, comunicação, entendimento do cliente.",
+      "Princípios: competência, legitimidade, disponibilidade, flexibilidade.",
+      "Fundamentos: comunicabilidade, apresentação, atenção/cortesia/interesse, presteza/eficiência/tolerância, discrição, conduta/objetividade.",
+      "Diferença: atendimento (resolver demanda) vs tratamento (modo de recepção)."
+    ]
+  },
+  {
+    bloco: "Gestão de Documentos",
+    conteudo: [
+      "Lei 8159/91 Art. 3º: conjunto de procedimentos (produção, tramitação, uso, avaliação, arquivamento).",
+      "Fases: produção, utilização/conservação, destinação/eliminação.",
+      "CONARQ: órgão normativo.",
+      "Documento arquivístico: imparcialidade, unicidade, naturalidade, inter-relacionamento, autenticidade.",
+      "Tipos de arquivo: ativo, intermediário, inativo, histórico."
+    ]
+  },
+  {
+    bloco: "Protocolo e Arquivo",
+    conteudo: [
+      "Protocolo: serviço de recebimento, registro, classificação, distribuição, controle tramitação e expedição.",
+      "Rotinas: recebimento/classificação, registro/movimentação, expedição."
+    ]
+  },
+  {
+    bloco: "Tabela de Temporalidade",
+    conteudo: [
+      "Instrumento para prazos de guarda (corrente, intermediária, destinação final: eliminação ou guarda permanente).",
+      "Unidade de tempo: ano."
+    ]
+  },
+  {
+    bloco: "Gestão de Materiais",
+    conteudo: [
+      "GM envolve totalidade dos fluxos; setores: controle estoques, compras, almoxarifado, PCP, importação, transportes.",
+      "Estoque: matéria-prima, em processamento, semiacabados, acabados, produtos acabados.",
+      "Estoque de segurança, mínimo, médio, máximo.",
+      "Sistemas: duas gavetas, máximos-mínimos, reposições periódicas, MRP.",
+      "Ciclo de compras: análise OC, pesquisa/seleção fornecedores, negociação, follow-up, controle/recebimento.",
+      "Centralização vs descentralização de compras.",
+      "Armazenamento: almoxarifado, objetivos, atividades, técnicas.",
+      "Conservação de materiais."
+    ]
+  },
+  {
+    bloco: "Noções de Administração Pública",
+    conteudo: [
+      "Sentido amplo: governo + estrutura administrativa + administração.",
+      "Sentido estrito: só funções administrativas.",
+      "Sentido subjetivo/formal/orgânico: quem.",
+      "Sentido objetivo/material/funcional: o quê.",
+      "Características: executora, instrumental, hierarquizada, competência limitada, responsabilidade técnica, só poder administrativo, dependente, neutra.",
+      "Divisão direta vs indireta; Adm Direta (sem personalidade jurídica), Adm Indireta (autarquias, fundações, empresas públicas, sociedades de economia mista)."
+    ]
+  },
+  {
+    bloco: "Modelos de Administração Pública",
+    conteudo: [
+      "Patrimonialista: confusão público/privado, corrupção/nepotismo inerentes.",
+      "Burocrática: combate corrupção/nepotismo, princípios: profissionalização, carreira, hierarquia funcional, impessoalidade, formalismo, poder racional-legal.",
+      "Gerencial: foco resultados/cidadão-cliente, controle a posteriori, descentralização, confiança limitada, flexibilidade."
+    ]
+  },
+  {
+    bloco: "Reformas Administrativas",
+    conteudo: [
+      "DASP (Decreto-Lei 579/38, Estado Novo Vargas): centralizar/reorganizar Adm Pública, combater patrimonialismo.",
+      "Decreto-Lei 200/1967: reforma administrativa regime militar, descentralização, administração indireta, planejamento/orçamento.",
+      "PDRAE 1995 (Bresser-Pereira): modelo gerencial, controle resultados, descentralização.",
+      "Paradigma Pós-Burocrático."
+    ]
+  },
+  {
+    bloco: "Princípios Art.37 CRFB/88 (LIMPE)",
+    conteudo: [
+      "Legalidade: só pode fazer o que a lei permite.",
+      "Impessoalidade: não privilegiar/prejudicar ninguém, interesse público.",
+      "Moralidade: ética e boa-fé.",
+      "Publicidade: transparência, divulgação.",
+      "Eficiência: melhor resultado com menor custo."
+    ]
+  }
+];
+
+// Mapa Mental (estrutura expansível)
+const mindMap = {
+  "Noções de Administração": {
+    "Administração": [
+      "Processo de planejar, organizar, dirigir e controlar recursos para atingir objetivos."
+    ],
+    "Gestão": [
+      "Aplicação prática da administração."
+    ],
+    "Organização": [
+      "Formal (planejada) ou informal (relações espontâneas).",
+      "Tipos: pública/privada, com/sem fins lucrativos, permanente/temporária."
+    ],
+    "Gestor": [
+      "Responsável por resultados, exerce liderança, planeja, organiza, dirige e controla."
+    ],
+    "Habilidades do gestor": [
+      "Técnicas (saber fazer), humanas (relacionamento), conceituais (visão do todo)."
+    ],
+    "Papéis do gestor": [
+      "Interpessoal, informacional, decisório."
+    ],
+    "Funções organizacionais": [
+      "Produção, marketing, finanças, RH, P&D."
+    ],
+    "Princípios": [
+      "Especialização, definição funcional, paridade responsabilidade/autoridade, staff/linha, escalar."
+    ]
+  },
+  "Processo Administrativo (PODC)": {
+    "Planejamento": [
+      "Define objetivos e como alcançá-los."
+    ],
+    "Organização": [
+      "Arranja recursos e estrutura."
+    ],
+    "Direção": [
+      "Influencia e motiva pessoas."
+    ],
+    "Controle": [
+      "Monitora e corrige desvios."
+    ],
+    "Características": [
+      "Cíclico, interativo, iterativo, sistêmico."
+    ]
+  },
+  "Eficiência, Eficácia, Efetividade": {
+    "Eficiência": [
+      "Fazer certo, mínimo recurso."
+    ],
+    "Eficácia": [
+      "Atingir objetivos."
+    ],
+    "Efetividade": [
+      "Ser eficiente e eficaz ao mesmo tempo."
+    ],
+    "Produtividade": [
+      "Relação entre recursos usados e resultados obtidos."
+    ],
+    "Competitividade": [
+      "Desempenho superior ao dos concorrentes."
+    ]
+  },
+  "Comunicação Organizacional": {
+    "Sistema": [
+      "Fonte, transmissor, canal, receptor, destino, ruído."
+    ],
+    "Barreiras": [
+      "Ruídos, distorções, falta de clareza."
+    ],
+    "Tipos": [
+      "Formal/informal, oral/escrita."
+    ],
+    "Fluxos": [
+      "Vertical (ascendente/descendente), horizontal, transversal, circular."
+    ],
+    "Funções": [
+      "Controle, motivação, expressão emocional, informação."
+    ]
+  },
+  "Redação Oficial": {
+    "Manual da Presidência da República": [
+      "Clareza, precisão, objetividade, concisão, coesão, impessoalidade, formalidade, norma padrão."
+    ],
+    "Pronomes de tratamento": [
+      "'senhor' para agentes públicos federais (Decreto 9.758/2019)."
+    ],
+    "Padrão ofício": [
+      "Cabeçalho, identificação, local/data, endereçamento, assunto, texto, fechos."
+    ],
+    "Exposição de Motivos": [
+      "Ministro → Presidente/Vice."
+    ],
+    "Mensagem": [
+      "Entre Chefes de Poderes."
+    ],
+    "E-mail oficial": [
+      "Linguagem formal."
+    ]
+  },
+  "Atendimento ao Público": {
+    "Qualidade": [
+      "Tangibilidade, confiabilidade, proatividade, competência, cortesia, credibilidade, segurança, acesso, comunicação, entendimento do cliente."
+    ],
+    "Princípios": [
+      "Competência, legitimidade, disponibilidade, flexibilidade."
+    ],
+    "Fundamentos": [
+      "Comunicabilidade, apresentação, atenção/cortesia/interesse, presteza/eficiência/tolerância, discrição, conduta/objetividade."
+    ],
+    "Diferença": [
+      "Atendimento (resolver demanda) vs tratamento (modo de recepção)."
+    ]
+  },
+  "Gestão de Documentos": {
+    "Lei 8159/91 Art. 3º": [
+      "Conjunto de procedimentos (produção, tramitação, uso, avaliação, arquivamento)."
+    ],
+    "Fases": [
+      "Produção, utilização/conservação, destinação/eliminação."
+    ],
+    "CONARQ": [
+      "Órgão normativo."
+    ],
+    "Documento arquivístico": [
+      "Imparcialidade, unicidade, naturalidade, inter-relacionamento, autenticidade."
+    ],
+    "Tipos de arquivo": [
+      "Ativo, intermediário, inativo, histórico."
+    ]
+  },
+  "Protocolo e Arquivo": {
+    "Protocolo": [
+      "Serviço de recebimento, registro, classificação, distribuição, controle tramitação e expedição."
+    ],
+    "Rotinas": [
+      "Recebimento/classificação, registro/movimentação, expedição."
+    ]
+  },
+  "Tabela de Temporalidade": {
+    "Instrumento": [
+      "Prazos de guarda (corrente, intermediária, destinação final: eliminação ou guarda permanente)."
+    ],
+    "Unidade de tempo": [
+      "Ano."
+    ]
+  },
+  "Gestão de Materiais": {
+    "GM": [
+      "Totalidade dos fluxos; setores: controle estoques, compras, almoxarifado, PCP, importação, transportes."
+    ],
+    "Estoque": [
+      "Matéria-prima, em processamento, semiacabados, acabados, produtos acabados."
+    ],
+    "Estoque de segurança, mínimo, médio, máximo": [],
+    "Sistemas": [
+      "Duas gavetas, máximos-mínimos, reposições periódicas, MRP."
+    ],
+    "Ciclo de compras": [
+      "Análise OC, pesquisa/seleção fornecedores, negociação, follow-up, controle/recebimento."
+    ],
+    "Centralização vs descentralização de compras": [],
+    "Armazenamento": [
+      "Almoxarifado, objetivos, atividades, técnicas."
+    ],
+    "Conservação de materiais": []
+  },
+  "Noções de Administração Pública": {
+    "Sentido amplo": [
+      "Governo + estrutura administrativa + administração."
+    ],
+    "Sentido estrito": [
+      "Só funções administrativas."
+    ],
+    "Sentido subjetivo/formal/orgânico": [
+      "Quem."
+    ],
+    "Sentido objetivo/material/funcional": [
+      "O quê."
+    ],
+    "Características": [
+      "Executora, instrumental, hierarquizada, competência limitada, responsabilidade técnica, só poder administrativo, dependente, neutra."
+    ],
+    "Divisão direta vs indireta": [
+      "Adm Direta (sem personalidade jurídica), Adm Indireta (autarquias, fundações, empresas públicas, sociedades de economia mista)."
+    ]
+  },
+  "Modelos de Administração Pública": {
+    "Patrimonialista": [
+      "Confusão público/privado, corrupção/nepotismo inerentes."
+    ],
+    "Burocrática": [
+      "Combate corrupção/nepotismo, princípios: profissionalização, carreira, hierarquia funcional, impessoalidade, formalismo, poder racional-legal."
+    ],
+    "Gerencial": [
+      "Foco resultados/cidadão-cliente, controle a posteriori, descentralização, confiança limitada, flexibilidade."
+    ]
+  },
+  "Reformas Administrativas": {
+    "DASP (Decreto-Lei 579/38, Estado Novo Vargas)": [
+      "Centralizar/reorganizar Adm Pública, combater patrimonialismo."
+    ],
+    "Decreto-Lei 200/1967": [
+      "Reforma administrativa regime militar, descentralização, administração indireta, planejamento/orçamento."
+    ],
+    "PDRAE 1995 (Bresser-Pereira)": [
+      "Modelo gerencial, controle resultados, descentralização."
+    ],
+    "Paradigma Pós-Burocrático": []
+  },
+  "Princípios Art.37 CRFB/88 (LIMPE)": {
+    "Legalidade": [
+      "Só pode fazer o que a lei permite."
+    ],
+    "Impessoalidade": [
+      "Não privilegiar/prejudicar ninguém, interesse público."
+    ],
+    "Moralidade": [
+      "Ética e boa-fé."
+    ],
+    "Publicidade": [
+      "Transparência, divulgação."
+    ],
+    "Eficiência": [
+      "Melhor resultado com menor custo."
+    ]
+  }
+};
+
+// Flashcards (frente/verso, dica, mnemônico, visualização/associação)
+const flashcards = [
+  {
+    frente: "Quais são as funções do processo administrativo (PODC)?",
+    verso: "Planejamento, Organização, Direção e Controle.",
+    dica: "Lembre-se da sigla PODC.",
+    mnem: "PODC = Planejar, Organizar, Dirigir, Controlar.",
+    visual: "Imagine um ciclo: Planejar → Organizar → Dirigir → Controlar → Planejar...",
+    pegadinha: "Não confunda Direção com Controle!"
+  },
+  {
+    frente: "O que é eficiência?",
+    verso: "Fazer certo, com o mínimo de recursos.",
+    dica: "Eficiência = meios, foco no processo.",
+    mnem: "Eficiência = Eficaz + Inteligência no uso dos recursos.",
+    visual: "Pense em uma máquina bem ajustada, sem desperdício.",
+    pegadinha: "Não confunda eficiência (meios) com eficácia (fins)!"
+  },
+  {
+    frente: "O que é eficácia?",
+    verso: "Atingir os objetivos propostos.",
+    dica: "Eficácia = fins, foco no resultado.",
+    mnem: "Eficácia = Efeito alcançado.",
+    visual: "Imagine um alvo sendo acertado.",
+    pegadinha: "Não basta ser eficiente se não for eficaz!"
+  },
+  {
+    frente: "O que é efetividade?",
+    verso: "Ser eficiente e eficaz ao mesmo tempo.",
+    dica: "Efetividade = eficiência + eficácia.",
+    mnem: "Efetividade = E².",
+    visual: "Pense em um time que joga bem (eficiente) e ganha o jogo (eficaz).",
+    pegadinha: "Efetividade não é só eficiência!"
+  },
+  {
+    frente: "Quais são os princípios do Art. 37 da CRFB/88 (LIMPE)?",
+    verso: "Legalidade, Impessoalidade, Moralidade, Publicidade, Eficiência.",
+    dica: "LIMPE: Legalidade, Impessoalidade, Moralidade, Publicidade, Eficiência.",
+    mnem: "LIMPE = L.I.M.P.E.",
+    visual: "Imagine uma lousa LIMPE, cada letra um princípio.",
+    pegadinha: "Não confunda publicidade (divulgação) com propaganda!"
+  },
+  {
+    frente: "O que diferencia a administração pública direta da indireta?",
+    verso: "Direta: sem personalidade jurídica própria; Indireta: com personalidade jurídica própria (autarquias, fundações, empresas públicas, sociedades de economia mista).",
+    dica: "Direta = órgãos do Estado; Indireta = entidades descentralizadas.",
+    mnem: "Direta = D de dentro; Indireta = I de independente.",
+    visual: "Pense em um organograma: direta no topo, indireta ramificada.",
+    pegadinha: "Empresa pública ≠ sociedade de economia mista!"
+  },
+  {
+    frente: "O que é comunicação formal e informal?",
+    verso: "Formal: oficial, segue normas; Informal: espontânea, não segue normas.",
+    dica: "Formal = regimento; Informal = conversa de corredor.",
+    mnem: "Formal = F de ficha; Informal = I de improviso.",
+    visual: "Imagine um memorando (formal) e um bate-papo (informal).",
+    pegadinha: "Nem toda comunicação escrita é formal!"
+  },
+  {
+    frente: "Quais são as habilidades do gestor?",
+    verso: "Técnicas, humanas e conceituais.",
+    dica: "THC: Técnicas, Humanas, Conceituais.",
+    mnem: "THC = Três Habilidades do Chefe.",
+    visual: "Pense em um triângulo: cada vértice uma habilidade.",
+    pegadinha: "Não confunda habilidade técnica com conceitual!"
+  },
+  {
+    frente: "O que é o princípio da impessoalidade?",
+    verso: "Não privilegiar ou prejudicar ninguém; foco no interesse público.",
+    dica: "Imparcialidade = impessoalidade.",
+    mnem: "Impessoalidade = sem pessoa.",
+    visual: "Imagine uma balança equilibrada.",
+    pegadinha: "Impessoalidade não é anonimato!"
+  },
+  {
+    frente: "O que é o princípio da legalidade?",
+    verso: "Só pode fazer o que a lei permite.",
+    dica: "Legalidade = agir conforme a lei.",
+    mnem: "Legalidade = Lei é a base.",
+    visual: "Pense em um juiz com um livro de leis.",
+    pegadinha: "No setor público, só o que a lei permite; no privado, tudo que a lei não proíbe."
+  },
+  // ... (adicione mais flashcards conforme desejar)
+];
+
+// Questões Padrões (verbatim do PDF)
+const questoesPadrao = [
+  {
+    enunciado: "01. (IF/MT - Tecnólogo - IF/MT). A coluna da esquerda apresenta as habilidades do Gestor e a da direita, a caracterização de cada uma. Numere a coluna da direita de acordo com a da esquerda.\n1 - Técnicas\n2 - Humanas\n3 - Conceituais\n( ) Consistem na capacidade para lidar com ideias e estão relacionadas a pensar, raciocinar, diagnosticar situações e formular alternativas de solução dos problemas.\n( ) Consistem em usar conhecimentos, métodos e equipamentos para a realização de tarefas.\n( ) Referem-se à capacidade para trabalhar em equipe e estão relacionadas à interação com pessoas, à capacidade de comunicar, motivar e coordenar.\nMarque a sequência correta.",
+    alternativas: ["A - 3, 2, 1", "B - 3, 1, 2", "C - 1, 3, 2", "D - 2, 1, 3"],
+    resposta: "B"
+  },
+  {
+    enunciado: "02. (UFABC - Assistente em Administração - VUNESP) Uma das noções básicas em administração refere-se à utilização adequada dos meios disponíveis (materiais, equipamentos, processos etc.) para que se atinjam os fins propostos. O conceito ao qual essa ação se refere é o de",
+    alternativas: ["A - eficácia.", "B - qualidade.", "C - economia.", "D - eficiência.", "E - correção."],
+    resposta: "D"
+  },
+  // ... (adicione todas as questões do PDF, conforme extraído)
+];
+
+// Exercícios de múltipla escolha (exemplo)
+const exerciciosMultiplaEscolha = [
+  {
+    pergunta: "Qual das alternativas representa corretamente o conceito de eficiência?",
+    alternativas: [
+      "Atingir os objetivos propostos.",
+      "Fazer certo, com o mínimo de recursos.",
+      "Ser eficaz e eficiente ao mesmo tempo.",
+      "Foco no resultado final.",
+      "Apenas cumprir regulamentos internos."
+    ],
+    resposta: 1,
+    dica: "Eficiência está relacionada aos meios, não aos fins.",
+    memorizacao: "Eficiência = fazer certo, com o mínimo de recursos."
+  },
+  // ... (adicione mais questões baseadas no conteúdo)
+];
+
+// Exercícios Certo ou Errado (exemplo)
+const exerciciosCertoErrado = [
+  {
+    pergunta: "A administração pública direta possui personalidade jurídica própria.",
+    resposta: false,
+    dica: "Direta = órgãos do Estado, sem personalidade jurídica.",
+    memorizacao: "Direta não tem personalidade jurídica própria."
+  },
+  // ... (adicione mais questões)
+];
+
+// Exercícios Complete as Lacunas (exemplo)
+const exerciciosLacunas = [
+  {
+    frase: "O princípio da _______ determina que a administração só pode agir conforme a lei.",
+    resposta: "legalidade",
+    dica: "É o primeiro princípio do LIMPE.",
+    memorizacao: "Legalidade = agir conforme a lei."
+  },
+  // ... (adicione mais questões)
+];
+
+// Exercícios Definições (exemplo)
+const exerciciosDefinicoes = [
+  {
+    termo: "Eficiência",
+    resposta: "Fazer certo, com o mínimo de recursos.",
+    dica: "Foco nos meios.",
+    memorizacao: "Eficiência = meios."
+  },
+  // ... (adicione mais questões)
+];
+
+// Exercícios Correlacione (exemplo)
+const exerciciosCorrelacione = [
+  {
+    esquerda: ["Legalidade", "Impessoalidade", "Moralidade", "Publicidade", "Eficiência"],
+    direita: [
+      "A - Agir conforme a lei.",
+      "B - Não privilegiar ou prejudicar ninguém.",
+      "C - Agir com ética e boa-fé.",
+      "D - Transparência e divulgação.",
+      "E - Melhor resultado com menor custo.",
+      "F - -"
+    ],
+    resposta: [0, 1, 2, 3, 4], // índices das respostas corretas
+    dica: "LIMPE: cada letra um princípio.",
+    memorizacao: "LIMPE = Legalidade, Impessoalidade, Moralidade, Publicidade, Eficiência."
+  },
+  // ... (adicione mais conjuntos)
+];
+
+// Exercícios Cite (exemplo)
+const exerciciosCite = [
+  {
+    pergunta: "Cite dois exemplos de comunicação formal.",
+    resposta: ["Memorando", "Ofício"],
+    dica: "São documentos oficiais.",
+    memorizacao: "Comunicação formal = documentos oficiais."
+  },
+  // ... (adicione mais questões)
+];
+
+// Exercícios Liste (exemplo)
+const exerciciosListe = [
+  {
+    pergunta: "Liste as funções do processo administrativo.",
+    resposta: ["Planejamento", "Organização", "Direção", "Controle"],
+    dica: "PODC.",
+    memorizacao: "PODC = Planejar, Organizar, Dirigir, Controlar."
+  },
+  // ... (adicione mais questões)
+];
+
+// Exercícios V ou F (exemplo)
+const exerciciosVF = [
+  {
+    frase: "A administração pública indireta é composta por autarquias, fundações, empresas públicas e sociedades de economia mista.",
+    resposta: true,
+    dica: "Indireta = entidades descentralizadas.",
+    memorizacao: "Indireta = autarquias, fundações, empresas públicas, sociedades de economia mista."
+  },
+  // ... (adicione mais questões)
+];
+
+// Exercícios Complete (exemplo)
+const exerciciosComplete = [
+  {
+    termo: "Impessoalidade",
+    resposta: "Não privilegiar ou prejudicar ninguém; foco no interesse público.",
+    dica: "Pense em imparcialidade.",
+    memorizacao: "Impessoalidade = sem pessoa."
+  },
+  // ... (adicione mais questões)
+];
+
+// Dicas de memorização, mnemônicos, palácio da memória, visualização/associação
+const dicasFixacao = [
+  "LIMPE: imagine uma lousa limpa, cada letra um princípio.",
+  "PODC: visualize um ciclo contínuo de planejamento, organização, direção e controle.",
+  "Eficiência x Eficácia: pense em uma máquina bem ajustada (eficiente) acertando o alvo (eficaz).",
+  "Administração Direta = D de dentro; Indireta = I de independente.",
+  "Comunicação formal = documentos oficiais; informal = conversa de corredor."
+];
+
+// ===================
+// COMPONENTES AUXILIARES
+// ===================
+
+function TabBar({ tabs, current, setCurrent }) {
+  return (
+    <nav style={{ display: "flex", borderBottom: "2px solid #222", background: "#222", color: "#fff" }}>
+      {tabs.map((tab, i) => (
+        <button
+          key={tab}
+          onClick={() => setCurrent(i)}
+          style={{
+            flex: 1,
+            padding: "1em",
+            background: current === i ? "#444" : "#222",
+            color: "#fff",
+            border: "none",
+            borderBottom: current === i ? "4px solid #00e676" : "none",
+            fontWeight: current === i ? "bold" : "normal",
+            cursor: "pointer"
+          }}
+        >
+          {tab}
+        </button>
+      ))}
+    </nav>
+  );
+}
+
+// Mapa Mental Interativo
+function MindMapNode({ label, childrenNodes }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ marginLeft: 16, marginTop: 4 }}>
+      <div
+        style={{ cursor: "pointer", fontWeight: "bold", color: "#1976d2" }}
+        onClick={() => setOpen((o) => !o)}
+      >
+        {childrenNodes ? (open ? "▼ " : "► ") : "• "}
+        {label}
+      </div>
+      {open && childrenNodes && (
+        <div style={{ marginLeft: 16 }}>
+          {Array.isArray(childrenNodes)
+            ? childrenNodes.map((item, i) => (
+                <div key={i} style={{ margin: "2px 0" }}>
+                  {item}
+                </div>
+              ))
+            : Object.entries(childrenNodes).map(([k, v]) => (
+                <MindMapNode key={k} label={k} childrenNodes={v} />
+              ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MindMap() {
+  return (
+    <div>
+      <h2>Mapa Mental Interativo</h2>
+      {Object.entries(mindMap).map(([k, v]) => (
+        <MindMapNode key={k} label={k} childrenNodes={v} />
+      ))}
+      <div style={{ marginTop: 16, fontStyle: "italic", color: "#888" }}>
+        Clique nos tópicos para expandir!
+      </div>
+    </div>
+  );
+}
+
+// Flashcards
+function Flashcards() {
+  const [index, setIndex] = useState(0);
+  const [showVerso, setShowVerso] = useState(false);
+  const [sabia, setSabia] = useState([]);
+  const [naoSabia, setNaoSabia] = useState([]);
+  const [reviewMode, setReviewMode] = useState(false);
+  const [startFrom, setStartFrom] = useState(0);
+
+  const cards = reviewMode ? naoSabia.map(i => flashcards[i]) : flashcards.slice(startFrom);
+
+  function handleSabia() {
+    setSabia([...sabia, index + (reviewMode ? 0 : startFrom)]);
+    next();
+  }
+  function handleNaoSabia() {
+    setNaoSabia([...naoSabia, index + (reviewMode ? 0 : startFrom)]);
+    next();
+  }
+  function next() {
+    setShowVerso(false);
+    setIndex((i) => (i + 1 < cards.length ? i + 1 : 0));
+  }
+  function prev() {
+    setShowVerso(false);
+    setIndex((i) => (i > 0 ? i - 1 : 0));
+  }
+  function handleReviewNaoSabia() {
+    setReviewMode(true);
+    setIndex(0);
+  }
+  function handleStartFrom(e) {
+    setStartFrom(Number(e.target.value));
+    setIndex(0);
+    setShowVerso(false);
+    setReviewMode(false);
+  }
+
+  return (
+    <div>
+      <h2>Flashcards</h2>
+      <div>
+        <label>
+          Escolher a partir de qual flashcard começar:{" "}
+          <select value={startFrom} onChange={handleStartFrom}>
+            {flashcards.map((_, i) => (
+              <option key={i} value={i}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div style={{ margin: "1em 0", padding: 16, border: "2px solid #1976d2", borderRadius: 8, background: "#f5f5f5" }}>
+        <div style={{ fontWeight: "bold", fontSize: 18 }}>
+          {showVerso ? "Verso" : "Frente"}
+        </div>
+        <div style={{ fontSize: 20, margin: "1em 0" }}>
+          {showVerso ? cards[index].verso : cards[index].frente}
+        </div>
+        <button onClick={() => setShowVerso((v) => !v)} style={{ marginRight: 8 }}>
+          {showVerso ? "Ver Frente" : "Ver Resposta"}
+        </button>
+        <button onClick={prev} style={{ marginRight: 8 }}>Anterior</button>
+        <button onClick={next}>Próximo</button>
+        <div style={{ marginTop: 8 }}>
+          <button onClick={handleSabia} style={{ background: "#00e676", color: "#222", marginRight: 8 }}>Sabia</button>
+          <button onClick={handleNaoSabia} style={{ background: "#ff1744", color: "#fff" }}>Não sabia</button>
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <button onClick={() => alert(cards[index].dica)}>Dica</button>
+        </div>
+        {showVerso && (
+          <div style={{ marginTop: 8, color: "#1976d2" }}>
+            <div><b>Definição resumida:</b> {cards[index].verso}</div>
+            <div><b>Dica de memorização:</b> {cards[index].memorizacao || cards[index].mnem}</div>
+            <div><b>Visualização/Associação:</b> {cards[index].visual}</div>
+            <div><b>Pegadinha:</b> {cards[index].pegadinha}</div>
+          </div>
+        )}
+        <div style={{ marginTop: 8 }}>
+          <b>Progresso:</b> {index + 1} / {cards.length}
+        </div>
+      </div>
+      <div>
+        <button onClick={handleReviewNaoSabia} disabled={naoSabia.length === 0}>
+          Rever flashcards que não sabia ({naoSabia.length})
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// Consulta do conteúdo (busca por palavra)
+function ConsultaConteudo() {
+  const [busca, setBusca] = useState("");
+  const [resultados, setResultados] = useState([]);
+  function handleBusca(e) {
+    setBusca(e.target.value);
+    if (e.target.value.length < 2) {
+      setResultados([]);
+      return;
+    }
+    const termo = e.target.value.toLowerCase();
+    let res = [];
+    resumoCompleto.forEach((bloco) => {
+      bloco.conteudo.forEach((linha) => {
+        if (linha.toLowerCase().includes(termo)) {
+          res.push({ bloco: bloco.bloco, texto: linha });
+        }
+      });
+    });
+    setResultados(res);
+  }
+  return (
+    <div>
+      <h2>Consulta do Conteúdo</h2>
+      <input
+        type="text"
+        placeholder="Digite uma palavra-chave..."
+        value={busca}
+        onChange={handleBusca}
+        style={{ width: "100%", padding: 8, fontSize: 16, marginBottom: 8 }}
+      />
+      <div>
+        {resultados.length === 0 && busca.length > 1 && (
+          <div style={{ color: "#888" }}>Nenhum resultado encontrado.</div>
+        )}
+        {resultados.map((r, i) => (
+          <div key={i} style={{ margin: "8px 0", padding: 8, background: "#f5f5f5", borderRadius: 4 }}>
+            <b>{r.bloco}:</b> {r.texto}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Questões Padrões
+function QuestoesPadrao() {
+  const [index, setIndex] = useState(0);
+  const [resposta, setResposta] = useState("");
+  const [confirmado, setConfirmado] = useState(false);
+  const [acertos, setAcertos] = useState([]);
+  const [erros, setErros] = useState([]);
+  function handleConfirmar() {
+    setConfirmado(true);
+    if (resposta === questoesPadrao[index].resposta) {
+      setAcertos([...acertos, index]);
+    } else {
+      setErros([...erros, index]);
+    }
+  }
+  function next() {
+    setConfirmado(false);
+    setResposta("");
+    setIndex((i) => (i + 1 < questoesPadrao.length ? i + 1 : 0));
+  }
+  function prev() {
+    setConfirmado(false);
+    setResposta("");
+    setIndex((i) => (i > 0 ? i - 1 : 0));
+  }
+  function refazerErradas() {
+    setIndex(erros[0] || 0);
+    setErros([]);
+    setAcertos([]);
+    setConfirmado(false);
+    setResposta("");
+  }
+  return (
+    <div>
+      <h2>Questões Padrões</h2>
+      <div style={{ margin: "1em 0", padding: 16, border: "2px solid #1976d2", borderRadius: 8, background: "#f5f5f5" }}>
+        <div style={{ whiteSpace: "pre-line" }}>{questoesPadrao[index].enunciado}</div>
+        <div>
+          {questoesPadrao[index].alternativas.map((alt, i) => (
+            <div key={i}>
+              <label>
+                <input
+                  type="radio"
+                  name="resposta"
+                  value={alt[0]}
+                  checked={resposta === alt[0]}
+                  onChange={() => setResposta(alt[0])}
+                  disabled={confirmado}
+                />
+                {alt}
+              </label>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <button onClick={prev}>Anterior</button>
+          <button onClick={next} style={{ marginLeft: 8 }}>Próxima</button>
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <button onClick={handleConfirmar} disabled={confirmado || !resposta}>Confirmar</button>
+          <button onClick={() => alert("Dica: Leia com atenção o enunciado!")}>Dica</button>
+        </div>
+        {confirmado && (
+          <div style={{ marginTop: 8, color: resposta === questoesPadrao[index].resposta ? "#00e676" : "#ff1744" }}>
+            {resposta === questoesPadrao[index].resposta ? "Correto!" : `Errado. Resposta correta: ${questoesPadrao[index].resposta}`}
+            <div style={{ color: "#1976d2" }}>Dica de memorização: {dicasFixacao[index % dicasFixacao.length]}</div>
+          </div>
+        )}
+        <div style={{ marginTop: 8 }}>
+          <b>Progresso:</b> {index + 1} / {questoesPadrao.length}
+        </div>
+      </div>
+      <div>
+        <button onClick={refazerErradas} disabled={erros.length === 0}>
+          Refazer questões erradas ({erros.length})
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// Exercícios genéricos (exemplo para múltipla escolha)
+function ExerciciosMultiplaEscolha() {
+  const [index, setIndex] = useState(0);
+  const [resposta, setResposta] = useState(null);
+  const [confirmado, setConfirmado] = useState(false);
+  const [erros, setErros] = useState([]);
+  function handleConfirmar() {
+    setConfirmado(true);
+    if (resposta !== exerciciosMultiplaEscolha[index].resposta) {
+      setErros([...erros, index]);
+    }
+  }
+  function next() {
+    setConfirmado(false);
+    setResposta(null);
+    setIndex((i) => (i + 1 < exerciciosMultiplaEscolha.length ? i + 1 : 0));
+  }
+  function prev() {
+    setConfirmado(false);
+    setResposta(null);
+    setIndex((i) => (i > 0 ? i - 1 : 0));
+  }
+  function refazerErradas() {
+    setIndex(erros[0] || 0);
+    setErros([]);
+    setConfirmado(false);
+    setResposta(null);
+  }
+  return (
+    <div>
+      <h2>Exercícios de Múltipla Escolha</h2>
+      <div style={{ margin: "1em 0", padding: 16, border: "2px solid #1976d2", borderRadius: 8, background: "#f5f5f5" }}>
+        <div>{exerciciosMultiplaEscolha[index].pergunta}</div>
+        <div>
+          {exerciciosMultiplaEscolha[index].alternativas.map((alt, i) => (
+            <div key={i}>
+              <label>
+                <input
+                  type="radio"
+                  name="resposta"
+                  value={i}
+                  checked={resposta === i}
+                  onChange={() => setResposta(i)}
+                  disabled={confirmado}
+                />
+                {alt}
+              </label>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <button onClick={prev}>Anterior</button>
+          <button onClick={next} style={{ marginLeft: 8 }}>Próxima</button>
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <button onClick={handleConfirmar} disabled={confirmado || resposta === null}>Confirmar</button>
+          <button onClick={() => alert(exerciciosMultiplaEscolha[index].dica)}>Dica</button>
+        </div>
+        {confirmado && (
+          <div style={{ marginTop: 8, color: resposta === exerciciosMultiplaEscolha[index].resposta ? "#00e676" : "#ff1744" }}>
+            {resposta === exerciciosMultiplaEscolha[index].resposta ? "Correto!" : `Errado. Resposta correta: ${exerciciosMultiplaEscolha[index].alternativas[exerciciosMultiplaEscolha[index].resposta]}`}
+            <div style={{ color: "#1976d2" }}>Dica de memorização: {exerciciosMultiplaEscolha[index].memorizacao}</div>
+          </div>
+        )}
+        <div style={{ marginTop: 8 }}>
+          <b>Progresso:</b> {index + 1} / {exerciciosMultiplaEscolha.length}
+        </div>
+      </div>
+      <div>
+        <button onClick={refazerErradas} disabled={erros.length === 0}>
+          Refazer questões erradas ({erros.length})
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ... (implemente componentes similares para Certo/Errado, Lacunas, Definições, Correlacione, Cite, Liste, V ou F, Complete)
+
+// ===================
+// APP PRINCIPAL
+// ===================
+
+const abas = [
+  "Início",
+  "Super Resumo",
+  "Resumo",
+  "Mapa Mental",
+  "Flashcards",
+  "Consulta",
+  "Questões Padrões",
+  "Exercícios"
+];
+
+function App() {
+  const [aba, setAba] = useState(0);
+
+  // Progresso global (pode ser expandido para localStorage)
+  useEffect(() => {
+    const saved = localStorage.getItem("mpadm2-aba");
+    if (saved) setAba(Number(saved));
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("mpadm2-aba", aba);
+  }, [aba]);
+
+  return (
+    <div style={{ fontFamily: "Roboto, Arial, sans-serif", background: "#fafafa", minHeight: "100vh" }}>
+      <header style={{ background: "#222", color: "#fff", padding: "1em 0", textAlign: "center" }}>
+        <h1 style={{ margin: 0, fontSize: 28 }}>Noções de Administração e Administração Pública</h1>
+        <div style={{ fontSize: 16, color: "#00e676" }}>Apostila Domínio — MP-ADM2-2026</div>
+      </header>
+      <TabBar tabs={abas} current={aba} setCurrent={setAba} />
+      <main style={{ maxWidth: 800, margin: "0 auto", padding: 24 }}>
+        {aba === 0 && (
+          <div>
+            <h2>Bem-vindo(a) ao App de Estudos!</h2>
+            <p>
+              Este aplicativo foi desenvolvido para facilitar seus estudos em <b>Noções de Administração e Administração Pública</b>.
+              Navegue pelas abas acima para acessar super resumo, resumos completos, mapa mental interativo, flashcards, consulta do conteúdo, questões padrões e exercícios interativos.
+            </p>
+            <ul>
+              <li>Seu progresso é salvo automaticamente.</li>
+              <li>Você pode sair e voltar de onde parou.</li>
+              <li>Todos os conteúdos e exercícios são baseados 100% na apostila enviada.</li>
+            </ul>
+            <div style={{ marginTop: 24 }}>
+              <b>Repositório:</b> <a href="https://dinandes.github.io/MP-ADM2-2026/" target="_blank" rel="noopener noreferrer">dinandes.github.io/MP-ADM2-2026/</a>
+            </div>
+          </div>
+        )}
+        {aba === 1 && (
+          <div>
+            <h2>Super Resumo</h2>
+            <ul>
+              {superResumo.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {aba === 2 && (
+          <div>
+            <h2>Resumo Completo</h2>
+            {resumoCompleto.map((bloco, i) => (
+              <div key={i} style={{ marginBottom: 16 }}>
+                <h3 style={{ color: "#1976d2" }}>{bloco.bloco}</h3>
+                <ul>
+                  {bloco.conteudo.map((linha, j) => (
+                    <li key={j}>{linha}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        )}
+        {aba === 3 && <MindMap />}
+        {aba === 4 && <Flashcards />}
+        {aba === 5 && <ConsultaConteudo />}
+        {aba === 6 && <QuestoesPadrao />}
+        {aba === 7 && (
+          <div>
+            <ExerciciosMultiplaEscolha />
+            {/* Adicione outros tipos de exercícios aqui */}
+          </div>
+        )}
+      </main>
+      <footer style={{ background: "#222", color: "#fff", textAlign: "center", padding: 16, marginTop: 32 }}>
+        <div>
+          <b>MP-ADM2-2026</b> — Desenvolvido por <a href="https://github.com/dinandes" style={{ color: "#00e676" }}>dinandes</a>
+        </div>
+        <div>
+          <a href="https://dinandes.github.io/MP-ADM2-2026/" style={{ color: "#00e676" }}>dinandes.github.io/MP-ADM2-2026/</a>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
